@@ -219,25 +219,17 @@ d096b318b9bd   ubuntu    "sleep 1000"   About a minute ago   Up About a minute  
 # 2-3 컨테이너 중지
 - 입력한 명령어
 ```
-
+PS C:\Users\MYPC> docker stop test
 ```
 - 출력 결과
 ```
-
-```
-- 입력한 명령어
-```
-
+test
 ```
 
 # 3. 운영 로그 확인
-- 출력 결과
-```
-
-```
 - 입력한 명령어
 ```
-
+PS C:\Users\MYPC> docker logs test
 ```
 - 출력 결과
 ```
@@ -245,6 +237,28 @@ d096b318b9bd   ubuntu    "sleep 1000"   About a minute ago   Up About a minute  
 ```
 
 # 4. 리소스 확인
+- 입력한 명령어
+```
+docker stats --no-stream
+```
+- 출력 결과
+```
+CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT   MEM %     NET I/O         BLOCK I/O   PIDS                                                                                       
+d096b318b9bd   test      0.00%     400KiB / 7.703GiB   0.00%     1.17kB / 126B   0B / 0B     1
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 - 입력한 명령어
 ```
 
