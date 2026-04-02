@@ -21,7 +21,7 @@
 - [x] **Git**
 - [ ] **GitHub**
 
-## 4. 검증 방법 및 결과 위치   ----------- 어떤명령으로 무엇을 했는지------------
+## 4. 검증 방법 및 결과 위치   
 | 수행 항목 | 검증 방법 (수행 명령어 및 확인 내용) | 결과 위치 링크 |
 | :--- | :--- | :--- |
 | **터미널** | `pwd`, `ls -Force`, `cd`, `mkdir`, `cp`, `mv`, `rm` 등 기본 명령어를 통한 파일 시스템 조작 및 파일 생성(`ni`, `echo`)/내용 확인(`cat`) 검증 | [터미널 실습 로그](#41-터미널-기본-조작-로그) |
@@ -34,23 +34,66 @@
 
 ### 4.1 터미널 기본 조작 로그
 # 1. 현재 위치 확인 
-입력한 명령어 PS C:\Users\MYPC> pwd<br>
-출력 결과 Path
+- 입력한 명령어<br>```PS C:\Users\MYPC> pwd```
+- 출력 결과<br> ```Path```
 
-# 2. 목록 확인 (숨김 파일 포함)
-ls -Force
+# 2. 폴더 생성
+- 입력한 명령어<br>```PS C:\Users\MYPC> mkdir test1```
+- 출력 결과<br>
+```
+Mode                 LastWriteTime         Length 
+----                 -------------         ------ 
+d-----      2026-04-02   오전 9:39                
+```
 
-# 3. 실습용 폴더 생성 및 이동
-mkdir mission_test
-cd mission_test
+# 3. 목록 확인 (숨김 파일 포함)
+- 입력한 명령어<br>```PS C:\Users\MYPC> ls -Force```
+- 출력 결과<br>
+```
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2026-04-02   오전 8:05                .copilot
+d-----      2026-04-02   오전 8:24                .docker
+d-----      2026-04-02   오전 10:15                test1
+```
 
-# 4. 빈 파일 생성 및 내용 기록
-ni empty.txt                 # 빈 파일 생성
-echo "hello world" > test.txt  # 내용이 있는 파일 생성
+# 4. 폴더 이동
+- 입력한 명령어<br>```PS C:\Users\MYPC> cd test1```
+- 출력 결과<br>
+```
+PS C:\Users\MYPC\test1> 
+```
 
-# 5. 파일 내용 확인
-cat test.txt
+# 5. 폴더 복사
+- 입력한 명령어<br>```PS C:\Users\MYPC> cp -r test1 test2```
+- 출력 결과<br>
+```
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2026-04-02   오전 9:39                test1
+d-----      2026-04-02  오전 10:05                test2
+```
 
+# 6. 폴더 이름 변경
+- 입력한 명령어<br>```PS C:\Users\MYPC> mv test2 test3```
+- 출력 결과<br>
+```
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2026-04-02   오전 9:39                test1
+d-----      2026-04-02  오전 10:05                test3
+```
+
+# 7. 폴더 이동
+ 입력한 명령어<br>```PS C:\Users\MYPC> mv test3 test1/```
+- 출력 결과<br>
+```
+PS C:\Users\MYPC\test1> ls
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2026-04-02  오전 10:05                test3
+```
 # 6. 파일 복사
 cp test.txt copy_test.txt
 
