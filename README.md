@@ -34,10 +34,8 @@
 
 ### 4.1 터미널 기본 조작 로그
 # 1. 현재 위치 확인 
--입력한 명령어
-  PS C:\Users\MYPC> pwd
--출력 결과 (시스템 응답)
-  Path
+입력한 명령어 PS C:\Users\MYPC> pwd<br>
+출력 결과 Path
 
 # 2. 목록 확인 (숨김 파일 포함)
 ls -Force
