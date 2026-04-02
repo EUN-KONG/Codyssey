@@ -33,11 +33,11 @@
 | **Git/GitHub** | `git log` 커밋 이력 및 GitHub Repository URL 연결 상태 확인 | [Git 연동 정보](#45-git-및-github-최종-연동) |
 
 ### 4.1 터미널 기본 조작 로그
-# 1. 현재 위치 확인 (입력한 명령어)
-PS C:\Users\MYPC> pwd
-
-# 출력 결과 (시스템 응답)
-Path
+# 1. 현재 위치 확인 
+-입력한 명령어
+  PS C:\Users\MYPC> pwd
+-출력 결과 (시스템 응답)
+  Path
 
 # 2. 목록 확인 (숨김 파일 포함)
 ls -Force
