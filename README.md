@@ -297,7 +297,8 @@ hello
 
 # 6. 기존 Dockerfile 기반 커스텀 이미지 제작
 # (A) 웹 서버 베이스 이미지 활용(예: NGINX/Apache 등) + 정적 콘텐츠/설정만 교체
-# 6-1. 선택한 베이스 이미지 및 Dockerfile
+# 6-1. 빌드 및 실행 로그 정리
+1. 프로젝트 폴더 생성
 - 입력한 명령어
 ```
 PS C:\Users\MYPC\Desktop> mkdir my-web-site
@@ -309,10 +310,12 @@ Mode                 LastWriteTime         Length Name
 d-----      2026-04-02   오후 2:41                my-web-site
 ```
 
+2. 정적 파일 및 설정 파일 작성
 - 입력한 명령어
 ```
 PS C:\Users\MYPC\Desktop\my-web-site> echo '<html><head><meta charset="UTF-8"></head><body><h1>내 커스텀 도커 웹서버 성공!</h1></body></html>' > index.html              
-PS C:\Users\MYPC\Desktop\my-web-site> echo 'FROM nginx:latest' > Dockerfile
+PS C:\Users\MYPC\Desktop\my-web-site> echo 'FROM nginx:latest
+>> COPY index.html /usr/share/nginx/html/index.html' > Dockerfile
 PS C:\Users\MYPC\Desktop\my-web-site> ls
 ```
 - 출력 결과
@@ -323,6 +326,7 @@ Mode                 LastWriteTime         Length Name
 -a----      2026-04-02   오후 2:43            172 index.html
 ```
 
+3. 도커 이미지 빌드
 - 입력한 명령어
 ```
 PS C:\Users\MYPC\Desktop\my-web-site> docker build -t my-web-image .
@@ -338,6 +342,7 @@ Successfully built 5ad19da9dfa6
 Successfully tagged my-web-image:latest
 ```
 
+4. 컨테이너 실행
 - 입력한 명령어
 ```
 PS C:\Users\MYPC\Desktop\my-web-site> docker run -d -p 8080:80 --name my-web-server my-web-image
@@ -349,7 +354,11 @@ PS C:\Users\MYPC\Desktop\my-web-site> docker run -d -p 8080:80 --name my-web-ser
 <img width="431" height="175" alt="image" src="https://github.com/user-attachments/assets/bdc0058e-7fb4-4ef8-8d62-ea3b7f108f0b" />
 
 # 6-2. 적용한 커스텀 포인트 각각의 목적
+1. **콘텐츠 개인화**: `COPY` 명령어를 통해 기본 Nginx 페이지를 사용자 정의 `index.html`로 교체
 
+2. **인코딩 최적화**: 윈도우 환경의 인코딩(BOM) 오류 해결을 위해 `UTF-8` 설정으로 파일 생성
+
+3. **네트워크 설정**: `-p 8080:80` 포트 포워딩을 통해 호스트 브라우저에서 접속 경로 확보
 
 ### 4.5 포트 및 볼륨 검증
 
