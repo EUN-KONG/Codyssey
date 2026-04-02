@@ -140,7 +140,7 @@ root@534e669a1496:/# chmod 777 my_folder
 root@534e669a1496:/# chmod 444 my_file.txt
 root@534e669a1496:/# ls -l
 ```
-- 출력 결과<br>
+- 출력 결과
 ```
 -r--r--r--   1 root root    0 Apr  2 02:28 my_file.txt
 drwxrwxrwx   2 root root 4096 Apr  2 02:28 my_folder
@@ -158,11 +158,11 @@ Docker version 29.3.1, build c2be9cc
 ```
 
 # 2. Docker 데몬 동작 여부 확인
--입력한 명령어
+- 입력한 명령어
 ```
 PS C:\Users\MYPC> docker info
 ```
--출력 결과
+- 출력 결과
 ```
 Client:
  Version:    29.3.1
@@ -183,5 +183,98 @@ Server:
 ```
 
 ### 4.4 dockerfile 빌드 및 이미지 확인
+# 1. 이미지 다운로드/목록 확인
+- 입력한 명령어
+```
+PS C:\Users\MYPC> docker images
+```
+- 출력 결과
+```
+IMAGE           ID             DISK USAGE   CONTENT SIZE   EXTRA
+ubuntu:latest   186072bba1b2        119MB         31.7MB
+```
+
+# 2. 컨테이너 실행/중지/목록 확인 
+# 2-1. 컨테이너 실행
+- 입력한 명령어
+```
+PS C:\Users\MYPC> docker run -d --name test ubuntu sleep 1000   
+```
+- 출력 결과
+```
+d096b318b9bd5947c2485c4feeb1eb7e724d0a7ee22de5a3fc3d2f9ea8cae51f
+```
+
+# 2-2. 컨테이너 목록
+- 입력한 명령어
+```
+PS C:\Users\MYPC> docker ps
+```
+- 출력 결과
+```
+CONTAINER ID   IMAGE     COMMAND        CREATED              STATUS              PORTS     NAMES
+d096b318b9bd   ubuntu    "sleep 1000"   About a minute ago   Up About a minute             test
+```
+
+# 2-3 컨테이너 중지
+- 입력한 명령어
+```
+
+```
+- 출력 결과
+```
+
+```
+- 입력한 명령어
+```
+
+```
+
+# 3. 운영 로그 확인
+- 출력 결과
+```
+
+```
+- 입력한 명령어
+```
+
+```
+- 출력 결과
+```
+
+```
+
+# 4. 리소스 확인
+- 입력한 명령어
+```
+
+```
+- 출력 결과
+```
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 2. 이미지 다운로드 확인
 
 ## 5. 트러블슈팅 2건 이상(문제 → 원인 가설 → 확인 → 해결/대안)
