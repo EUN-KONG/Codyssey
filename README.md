@@ -12,9 +12,9 @@
 
 ## 3. 수행 항목 체크리스트
 - [x] **터미널**
-- [ ] **권한**
+- [x] **권한**
 - [x] **Docker**
-- [ ] **Dockerfile**
+- [x] **Dockerfile**
 - [ ] **포트**
 - [ ] **볼륨**
 - [ ] **마운트**
@@ -27,9 +27,9 @@
 | **터미널** | `pwd`, `ls -Force`, `cd`, `mkdir`, `cp`, `mv`, `rm` 등 기본 명령어를 통한 파일 시스템 조작 및 파일 생성(`ni`, `echo`)/내용 확인(`cat`) 검증 | [터미널 실습 로그](#41-터미널-기본-조작-로그) |
 | **권한** | `ls -l`의 권한 비트(`-rw-r--r--`) 변화를 통해 `chmod` 변경 전/후 비교 | [권한 변경 로그](#42-권한-변경-실습-로그) |
 | **Docker** | `docker --version` 실행을 통해 도커 엔진 설치 및 클라이언트 응답 확인 | [실행 환경](#43-실행-환경) |
-| **Dockerfile** | `docker build` 실행 결과 및 `docker images` 목록 내 생성 이미지 확인 | [이미지 빌드 로그](#44-dockerfile-빌드-및-이미지-확인) |
+| **Dockerfile** | `docker run` 실행 결과 및 `docker images` 목록 내 생성 이미지 확인 | [이미지 빌드 로그](#44-dockerfile-빌드-및-이미지-확인) |
 | **포트** | `docker ps`로 포트(`8080`) 상태 확인 및 브라우저 접속 결과 검증 | [서비스 검증 로그](#45-포트-및-볼륨-검증) |
-| **볼륨/마운** | 컨테이너 재시작 후 마운트된 경로 내 파일 보존 여부 확인 | [서비스 검증 로그](#45-포트-및-볼륨-검증) |
+| **볼륨/마운트** | 컨테이너 재시작 후 마운트된 경로 내 파일 보존 여부 확인 | [서비스 검증 로그](#45-포트-및-볼륨-검증) |
 | **Git/GitHub** | `git log` 커밋 이력 및 GitHub Repository URL 연결 상태 확인 | [Git 연동 정보](#46-git-및-github-최종-연동) |
 
 ### 4.1 터미널 기본 조작 로그
@@ -216,7 +216,7 @@ CONTAINER ID   IMAGE     COMMAND        CREATED              STATUS             
 d096b318b9bd   ubuntu    "sleep 1000"   About a minute ago   Up About a minute             test
 ```
 
-# 2-3 컨테이너 중지
+# 2-3. 컨테이너 중지
 - 입력한 명령어
 ```
 PS C:\Users\MYPC> docker stop test
@@ -247,6 +247,55 @@ CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT   MEM %     NET I/O        
 d096b318b9bd   test      0.00%     400KiB / 7.703GiB   0.00%     1.17kB / 126B   0B / 0B     1
 ```
 
+# 5. 컨테이너 실행 실습 
+# 5-1. hello-world 실행 
+- 입력한 명령어
+```
+PS C:\Users\MYPC> docker run hello-world
+```
+- 출력 결과
+```
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+4f55086f7dd0: Pull complete
+d5e71e642bf5: Download complete
+Digest: sha256:452a468a4bf985040037cb6d5392410206e47db9bf5b7278d281f94d1c2d0931
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+```
+<img width="948" height="79" alt="image" src="https://github.com/user-attachments/assets/9b4591e6-670c-4e81-bac1-f1538b1efa04" />
+
+# 5-2. ubuntu 컨테이너를 실행하고 내부 진입 후 간단 명령
+- 입력한 명령어
+```
+root@af5a50527ece:/# ls
+```
+- 출력 결과
+```
+bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
+boot  etc  lib   media  opt  root  sbin  sys  usr``
+
+```
+- 입력한 명령어
+```
+root@af5a50527ece:/# echo "hello"
+```
+- 출력 결과
+```
+hello
+```
+
+# 5-3 컨테이너 종료/유지(attach/exec 등)의 차이
+
+
+
+
+
+
+
+### 4.5 포트 및 볼륨 검증
 
 
 
