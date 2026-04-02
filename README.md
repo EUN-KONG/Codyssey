@@ -24,33 +24,45 @@
 ## 4. 검증 방법 및 결과 위치   ----------- 어떤명령으로 무엇을 했는지------------
 | 수행 항목 | 검증 방법 (수행 명령어 및 확인 내용) | 결과 위치 링크 |
 | :--- | :--- | :--- |
-| **터미널** | 
-1. 현재 위치 확인
-pwd
-2. 목록 확인 (숨김 파일 포함)
-ls -Force
-3. 실습용 폴더 생성 및 이동
-mkdir mission_test
-cd mission_test
-4. 빈 파일 생성 및 내용 기록
-ni empty.txt                 # 빈 파일 생성
-echo "hello world" > test.txt  # 내용이 있는 파일 생성
-5. 파일 내용 확인
-cat test.txt
-6. 파일 복사
-cp test.txt copy_test.txt
-7. 이름 변경 (test.txt -> renamed.txt)
-mv test.txt renamed.txt
-8. 파일 삭제
-rm copy_test.txt
-9. 최종 목록 확인
-ls
-| [터미널 실습 로그](#41-터미널-기본-조작-로그) |
+| **터미널** | `pwd`, `ls -Force`, `cd`, `mkdir`, `cp`, `mv`, `rm` 등 기본 명령어를 통한 파일 시스템 조작 및 파일 생성(`ni`, `echo`)/내용 확인(`cat`) 검증 | [터미널 실습 로그](#41-터미널-기본-조작-로그) |
 | **권한** | `ls -l`의 권한 비트(`-rw-r--r--`) 변화를 통해 `chmod` 변경 전/후 비교 | [권한 변경 로그](#42-권한-변경-실습-로그) |
 | **Docker** | `docker --version` 실행을 통해 도커 엔진 설치 및 클라이언트 응답 확인 | [1. 실행 환경](#1-실행-환경) |
 | **Dockerfile** | `docker build` 실행 결과 및 `docker images` 목록 내 생성 이미지 확인 | [이미지 빌드 로그](#43-dockerfile-빌드-및-이미지-확인) |
 | **포트** | `docker ps`로 포트(`8080`) 상태 확인 및 브라우저 접속 결과 검증 | [서비스 검증 로그](#44-포트-및-볼륨-검증) |
 | **볼륨/마운** | 컨테이너 재시작 후 마운트된 경로 내 파일 보존 여부 확인 | [서비스 검증 로그](#44-포트-및-볼륨-검증) |
 | **Git/GitHub** | `git log` 커밋 이력 및 GitHub Repository URL 연결 상태 확인 | [Git 연동 정보](#45-git-및-github-최종-연동) |
+
+### 4.1 터미널 기본 조작 로그
+# 1. 현재 위치 확인 (입력한 명령어)
+PS C:\Users\MYPC> pwd
+
+# 출력 결과 (시스템 응답)
+Path
+
+# 2. 목록 확인 (숨김 파일 포함)
+ls -Force
+
+# 3. 실습용 폴더 생성 및 이동
+mkdir mission_test
+cd mission_test
+
+# 4. 빈 파일 생성 및 내용 기록
+ni empty.txt                 # 빈 파일 생성
+echo "hello world" > test.txt  # 내용이 있는 파일 생성
+
+# 5. 파일 내용 확인
+cat test.txt
+
+# 6. 파일 복사
+cp test.txt copy_test.txt
+
+# 7. 이름 변경 (test.txt -> renamed.txt)
+mv test.txt renamed.txt
+
+# 8. 파일 삭제
+rm copy_test.txt
+
+# 9. 최종 목록 확인
+ls
 
 ## 5. 트러블슈팅 2건 이상(문제 → 원인 가설 → 확인 → 해결/대안)
