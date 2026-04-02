@@ -146,4 +146,42 @@ root@534e669a1496:/# ls -l
 drwxrwxrwx   2 root root 4096 Apr  2 02:28 my_folder
 ```
 
+### 4.3 실행 환경
+# 1. Docker 버전 확인
+- 입력한 명령어
+```
+PS C:\Users\MYPC> docker --version
+```
+-출력 결과
+```
+Docker version 29.3.1, build c2be9cc
+```
+
+# 2. Docker 데몬 동작 여부 확인
+-입력한 명령어
+```
+PS C:\Users\MYPC> docker info
+```
+-출력 결과
+```
+Client:
+ Version:    29.3.1
+ Context:    desktop-linux
+ Debug Mode: false
+Server:
+ Containers: 0
+  Running: 0
+  Paused: 0
+  Stopped: 0
+ Images: 1
+ Server Version: 29.3.1
+ Storage Driver: overlayfs
+  driver-type: io.containerd.snapshotter.v1
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 2
+```
+
+### 4.4 dockerfile 빌드 및 이미지 확인
+
 ## 5. 트러블슈팅 2건 이상(문제 → 원인 가설 → 확인 → 해결/대안)
