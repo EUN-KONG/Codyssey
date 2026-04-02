@@ -414,12 +414,16 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 # 5. 새 컨테이너에 동일 볼륨 연결 후 데이터 복구 증명
 - 입력한 명령어
 ```
-
+PS C:\Users\MYPC\Desktop> docker run -d -p 8082:80 --name test-container-2 -v my-test-vol:/usr/share/nginx/html my-web-image
+PS C:\Users\MYPC\Desktop> docker exec test-container-2 cat /usr/share/nginx/html/verify.txt
 ```
 - 출력 결과
 ```
-
+Data is Safe
 ```
+<img width="345" height="101" alt="image" src="https://github.com/user-attachments/assets/cab79192-9c7c-4793-b542-812c25a5e8e4" />
+
+### 4.6 git 및 github 최종 연동
 
 
 
