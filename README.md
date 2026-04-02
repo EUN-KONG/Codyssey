@@ -361,6 +361,66 @@ PS C:\Users\MYPC\Desktop\my-web-site> docker run -d -p 8080:80 --name my-web-ser
 3. **네트워크 설정**: `-p 8080:80` 포트 포워딩을 통해 호스트 브라우저에서 접속 경로 확보
 
 ### 4.5 포트 및 볼륨 검증
+# 1. Docker 볼륨 생성
+- 입력한 명령어
+```
+PS C:\Users\MYPC\Desktop> docker volume create my-test-vol
+```
+- 출력 결과
+```
+my-test-vol
+```
+
+# 2. 볼륨을 컨테이너에 연결
+- 입력한 명령어
+```
+PS C:\Users\MYPC\Desktop> docker run -d -p 8081:80 --name test-container-1 -v my-test-vol:/usr/share/nginx/html my-web-image
+```
+- 출력 결과
+```
+7c3c8f019a67798f34d0bd0057e8dcbc0c391234dcf6339c028a04fcdaefbe4e
+```
+
+# 3. 데이터 생성 및 확인(삭제 전)
+- 입력한 명령어
+```
+PS C:\Users\MYPC\Desktop> docker exec test-container-1 sh -c "echo 'Data is Safe' > /usr/share/nginx/html/verify.txt"
+PS C:\Users\MYPC\Desktop> curl http://localhost:8081/verify.txt
+```
+- 출력 결과
+```
+StatusCode        : 200
+StatusDescription : OK
+Content           : Data is Safe
+```
+<img width="348" height="115" alt="image" src="https://github.com/user-attachments/assets/b0e109e4-2f9d-4cb3-954a-220bd7299e3f" />
+```
+CONTAINER ID   IMAGE          COMMAND                   CREATED          STATUS          PORTS                                     NAMES
+d1ece2a71650   my-web-image   "/docker-entrypoint.…"   11 minutes ago   Up 11 minutes   0.0.0.0:8081->80/tcp, [::]:8081->80/tcp   test-container-1
+```
+
+# 4. 컨테이너 삭제
+- 입력한 명령어
+```
+PS C:\Users\MYPC\Desktop> docker stop test-container-1
+PS C:\Users\MYPC\Desktop> docker rm test-container-1
+PS C:\Users\MYPC\Desktop> docker ps -a
+```
+- 출력 결과
+```
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+```
+
+# 5. 새 컨테이너에 동일 볼륨 연결 후 데이터 복구 증명
+- 입력한 명령어
+```
+
+```
+- 출력 결과
+```
+
+```
+
 
 
 
