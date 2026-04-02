@@ -296,8 +296,8 @@ hello
 | **진입 (도구)** | `exec` | **실행 중** | 실행 중인 컨테이너에 별도의 프로세스를 추가로 실행함 |
 
 # 6. 기존 Dockerfile 기반 커스텀 이미지 제작
-# (A) 웹 서버 베이스 이미지 활용
-# 6-1
+# (A) 웹 서버 베이스 이미지 활용(예: NGINX/Apache 등) + 정적 콘텐츠/설정만 교체
+# 6-1. 선택한 베이스 이미지 및 Dockerfile
 - 입력한 명령어
 ```
 PS C:\Users\MYPC\Desktop> mkdir my-web-site
@@ -311,7 +311,7 @@ d-----      2026-04-02   오후 2:41                my-web-site
 
 - 입력한 명령어
 ```
-PS C:\Users\MYPC\Desktop\my-web-site> echo '<html><head><meta charset="UTF-8"></head><body><h1>Hello Docker!</h1></body></html>' > index.html              
+PS C:\Users\MYPC\Desktop\my-web-site> echo '<html><head><meta charset="UTF-8"></head><body><h1>내 커스텀 도커 웹서버 성공!</h1></body></html>' > index.html              
 PS C:\Users\MYPC\Desktop\my-web-site> echo 'FROM nginx:latest' > Dockerfile
 PS C:\Users\MYPC\Desktop\my-web-site> ls
 ```
@@ -322,6 +322,33 @@ Mode                 LastWriteTime         Length Name
 -a----      2026-04-02   오후 2:43             40 Dockerfile
 -a----      2026-04-02   오후 2:43            172 index.html
 ```
+
+- 입력한 명령어
+```
+PS C:\Users\MYPC\Desktop\my-web-site> docker build -t my-web-image .
+```
+- 출력 결과
+```
+Step 1/2 : FROM nginx:latest
+ ---> 7150b3a39203
+Step 2/2 : COPY index.html /usr/share/nginx/html/index.html
+ ---> Using cache
+ ---> 5ad19da9dfa6
+Successfully built 5ad19da9dfa6
+Successfully tagged my-web-image:latest
+```
+
+- 입력한 명령어
+```
+PS C:\Users\MYPC\Desktop\my-web-site> docker run -d -p 8080:80 --name my-web-server my-web-image
+```
+- 출력 결과
+```
+7df05f7222cd758ca6ff762b6712e422a1ba08c98516e5ede42d0f906324cefc
+```
+<img width="431" height="175" alt="image" src="https://github.com/user-attachments/assets/bdc0058e-7fb4-4ef8-8d62-ea3b7f108f0b" />
+
+# 6-2. 적용한 커스텀 포인트 각각의 목적
 
 
 ### 4.5 포트 및 볼륨 검증
