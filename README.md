@@ -94,16 +94,29 @@ Mode                 LastWriteTime         Length Name
 ----                 -------------         ------ ----
 d-----      2026-04-02  오전 10:05                test3
 ```
-# 6. 파일 복사
-cp test.txt copy_test.txt
 
-# 7. 이름 변경 (test.txt -> renamed.txt)
-mv test.txt renamed.txt
+# 8.폴더 삭제
+- 입력한 명령어<br>```PS C:\Users\MYPC\test1> rm test3```
+- 출력 결과<br>
+```
+PS C:\Users\MYPC\test1> ls
+PS C:\Users\MYPC\test1>
+```
 
-# 8. 파일 삭제
-rm copy_test.txt
+# 9. 빈 파일 생성
+- 입력한 명령어<br>```PS C:\Users\MYPC\test1> ni file1```
+- 출력 결과<br>
+```
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----      2026-04-02  오전 10:24              0 file1
+```
 
-# 9. 최종 목록 확인
-ls
+# 8. 파일 내용 확인
+- 입력한 명령어<br>```PS C:\Users\MYPC\test1> cat file1```
+- 출력 결과<br>
+```
+hi
+```
 
 ## 5. 트러블슈팅 2건 이상(문제 → 원인 가설 → 확인 → 해결/대안)
