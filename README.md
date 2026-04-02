@@ -295,9 +295,33 @@ hello
 | **진입 (직접)** | `attach` | **실행 중** | 실행 중인 컨테이너의 메인 프로세스에 다시 연결함 |
 | **진입 (도구)** | `exec` | **실행 중** | 실행 중인 컨테이너에 별도의 프로세스를 추가로 실행함 |
 
+# 6. 기존 Dockerfile 기반 커스텀 이미지 제작
+# (A) 웹 서버 베이스 이미지 활용
+# 6-1
+- 입력한 명령어
+```
+PS C:\Users\MYPC\Desktop> mkdir my-web-site
+```
+- 출력 결과
+```
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2026-04-02   오후 2:41                my-web-site
+```
 
-
-
+- 입력한 명령어
+```
+PS C:\Users\MYPC\Desktop\my-web-site> echo '<html><head><meta charset="UTF-8"></head><body><h1>Hello Docker!</h1></body></html>' > index.html              
+PS C:\Users\MYPC\Desktop\my-web-site> echo 'FROM nginx:latest' > Dockerfile
+PS C:\Users\MYPC\Desktop\my-web-site> ls
+```
+- 출력 결과
+```
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----      2026-04-02   오후 2:43             40 Dockerfile
+-a----      2026-04-02   오후 2:43            172 index.html
+```
 
 
 ### 4.5 포트 및 볼륨 검증
