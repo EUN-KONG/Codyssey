@@ -24,7 +24,28 @@
 ## 4. 검증 방법 및 결과 위치   ----------- 어떤명령으로 무엇을 했는지------------
 | 수행 항목 | 검증 방법 (수행 명령어 및 확인 내용) | 결과 위치 링크 |
 | :--- | :--- | :--- |
-| **터미널** | `pwd`로 현재 경로 확인, `ls -Force`로 생성 파일(`test1_file.txt`) 존재 확인 | [터미널 실습 로그](#41-터미널-기본-조작-로그) |
+| **터미널** | 
+1. 현재 위치 확인
+pwd
+2. 목록 확인 (숨김 파일 포함)
+ls -Force
+3. 실습용 폴더 생성 및 이동
+mkdir mission_test
+cd mission_test
+4. 빈 파일 생성 및 내용 기록
+ni empty.txt                 # 빈 파일 생성
+echo "hello world" > test.txt  # 내용이 있는 파일 생성
+5. 파일 내용 확인
+cat test.txt
+6. 파일 복사
+cp test.txt copy_test.txt
+7. 이름 변경 (test.txt -> renamed.txt)
+mv test.txt renamed.txt
+8. 파일 삭제
+rm copy_test.txt
+9. 최종 목록 확인
+ls
+| [터미널 실습 로그](#41-터미널-기본-조작-로그) |
 | **권한** | `ls -l`의 권한 비트(`-rw-r--r--`) 변화를 통해 `chmod` 변경 전/후 비교 | [권한 변경 로그](#42-권한-변경-실습-로그) |
 | **Docker** | `docker --version` 실행을 통해 도커 엔진 설치 및 클라이언트 응답 확인 | [1. 실행 환경](#1-실행-환경) |
 | **Dockerfile** | `docker build` 실행 결과 및 `docker images` 목록 내 생성 이미지 확인 | [이미지 빌드 로그](#43-dockerfile-빌드-및-이미지-확인) |
