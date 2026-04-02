@@ -136,11 +136,14 @@ drwxr-xr-x   2 root root 4096 Apr  2 02:28 my_folder
 # 2.권한 변경
 - 입력한 명령어
 ```
- PS C:\Users\MYPC\test1> cat file1
+root@534e669a1496:/# chmod 777 my_folder
+root@534e669a1496:/# chmod 444 my_file.txt
+root@534e669a1496:/# ls -l
 ```
 - 출력 결과<br>
 ```
-hi
+-r--r--r--   1 root root    0 Apr  2 02:28 my_file.txt
+drwxrwxrwx   2 root root 4096 Apr  2 02:28 my_folder
 ```
 
 ## 5. 트러블슈팅 2건 이상(문제 → 원인 가설 → 확인 → 해결/대안)
